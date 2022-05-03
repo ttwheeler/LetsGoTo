@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 
 import Button from '@mui/material/Button';
 import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function AddDialog({ type }) {
+export default function AddDialog({ type, handleAdd }) {
   const [open, setOpen] = useState(false);
   const [meal, setMeal] = useState('');
   const [price, setPrice] = useState('');
@@ -24,8 +23,19 @@ export default function AddDialog({ type }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const input = {
+      type,
+      title: e.target.title.value,
+      url: e.target.url.value,
+    };
+
+    if (type === 'Eat') {
+      input.meal = meal;
+      input.price = price;
+    }
+
+    handleAdd(input);
     handleClose();
-    console.log(e.target.url.value);
   };
 
   const handleMealChange = (e) => {

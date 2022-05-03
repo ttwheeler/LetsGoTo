@@ -10,6 +10,23 @@ app.get('/trips/:id', (req, res) => {
   res.send(testData);
 });
 
+app.post('/trips/:id', (req, res) => {
+  const { id } = req.params;
+  const type = req.body.type.toLowerCase();
+  console.log(req.body);
+  req.body.id = Math.random() * 100;
+  req.body.votes = 0;
+  testData[type] = [...testData[type], req.body];
+  res.status(201).send();
+});
+
+app.get('/trips/:id/:type', (req, res) => {
+  console.log(req.params.id);
+  console.log(req.params.type);
+  const { type } = req.params;
+  res.send(testData[type]);
+});
+
 // eslint-disable-next-line no-console
 app.listen(4000, () => console.log('listening on port 4000'));
 
