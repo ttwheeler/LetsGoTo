@@ -2,7 +2,7 @@ import React from 'react';
 import Itenerary from './components/Itenerary.jsx';
 
 function App() {
-  return <Itenerary />;
+  return <Itenerary id={1} />;
 }
 
 export default App;
