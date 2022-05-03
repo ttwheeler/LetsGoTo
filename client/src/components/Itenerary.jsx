@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import IteneraryTable from './IteneraryTable.jsx';
+import AddDialog from './AddDialog.jsx';
 
 function Itenerary({ id }) {
   const [trip, setTrip] = useState(null);
@@ -24,10 +25,13 @@ function Itenerary({ id }) {
             </h2>
             <h3 className="section-heading">Stay</h3>
             <IteneraryTable items={trip.stay} type="Stay" />
+            <AddDialog type="Stay" />
             <h3 className="section-heading">Eat</h3>
             <IteneraryTable items={trip.eat} type="Eat" />
+            <AddDialog type="Eat" />
             <h3 className="section-heading">Do</h3>
             <IteneraryTable items={trip.activities} type="Do" />
+            <AddDialog type="Do" />
           </>
         )}
     </div>
