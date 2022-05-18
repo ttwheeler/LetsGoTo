@@ -17,5 +17,5 @@ In the current state a user can create a new trip or join an existing one, and a
 * Express
 * MongoDB w/ Monoose
 
-*I used React / Express as a base, Bootstrap and MUI for consistent and flexible UI design, and MongoDB with a Mongoose schema for a simple document storage setup.*
+A quick note on tech stack decisions: I used React / Express as a base, Bootstrap and MUI for consistent and flexible UI design, and MongoDB with a Mongoose schema for a simple document storage setup.
 
